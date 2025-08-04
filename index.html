@@ -1,0 +1,687 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Dimension by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+	  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js'></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Header -->
+  <header id="header">
+    <div class="logo">
+      <span class="icon fa-mountain"></span>
+    </div>
+    <div class="content">
+      <div class="inner">
+        <h1>Four Corners Carbon Solutions</h1>
+        <p>Advancing climate action in the Southwest by removing CO₂ from the air and storing it deep underground. Powered by local renewables and regional partnerships, we deliver scalable, permanent carbon removal for a net-zero future.</p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#interactivemap">Interactive Map</a></li>
+        <li><a href="#projectinformation">Project Info</a></li>
+        <li><a href="#dataTracking">Data Tracking</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#jobs">Jobs</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <div id="main">
+
+    <!-- Interactive Map -->
+<article id="interactivemap" class="active">
+  <h2 class="major">Interactive Map</h2>
+
+  <!-- General Description -->
+  <p>This interactive map provides a comprehensive look at the Four Corners Carbon Solutions project and its regional context. Use the tabs below to explore various layers, including infrastructure, community engagement, and environmental overlays.</p>
+
+  <!-- Tabs -->
+  <div id="map-tabs">
+    <button onclick="showLayer('dacs')">DACS Project</button>
+    <button onclick="showLayer('community')">Community Meetings</button>
+    <button onclick="showLayer('tribal')">Tribal Boundaries</button>
+    <button onclick="showLayer('data')">Data Overlay</button>
+  </div>
+
+  <!-- Dynamic Description -->
+  <div id="map-description" style="margin-top: 1em;">
+    <p><strong>DACS Project:</strong> This view highlights the CO₂ removal facility, underground storage area, pipeline route, and water source supporting the project.</p>
+  </div>
+
+  <!-- Map Container -->
+  <div id="map" style="height: 500px; margin-top: 1em;"></div>
+</article>
+
+<!-- Project Information -->
+<article id="projectinformation">
+  <h2 class="major">Project Information</h2>
+  <span class="image main"><img src="images/pic02.jpg" alt="DACS Facility Overview" /></span>
+
+  <p>The Four Corners Carbon Solutions (FCCS) facility is a regional Direct Air Capture and Storage (DACS) hub designed to remove CO₂ from the atmosphere and permanently store it underground. We operate with transparency, sustainability, and public engagement at the core of our mission.</p>
+
+  <!-- Timeline Dropdown -->
+  <details open>
+    <summary><strong>Project Timeline</strong></summary>
+    <ul>
+      <li><strong>2023 – Feasibility Study:</strong> Site evaluation, tribal consultation, and geological analysis completed.</li>
+      <li><strong>2024 – Permitting & Design:</strong> Environmental impact assessment submitted; engineering and permitting finalized.</li>
+      <li><strong>2025 – Construction:</strong> Facility and pipeline infrastructure under construction.</li>
+      <li><strong>2026 – Operations Begin:</strong> CO₂ capture units go live with injection testing underway.</li>
+      <li><strong>2027 and Beyond:</strong> Full-scale operations, ongoing monitoring, and public reporting.</li>
+    </ul>
+  </details>
+
+  <!-- Permitting Info Dropdown -->
+  <details>
+    <summary><strong>Permitting & Regulatory Overview</strong></summary>
+    <ul>
+      <li><strong>Class VI UIC Permit:</strong> Issued by the EPA for geologic CO₂ storage; ensures long-term containment and public safety.</li>
+      <li><strong>NEPA Compliance:</strong> Environmental assessment and tribal consultations completed under federal guidelines.</li>
+      <li><strong>Tribal Coordination:</strong> Ongoing engagement with Navajo Nation and Ute Mountain Ute Tribe on land, water, and cultural impacts.</li>
+      <li><strong>Monitoring, Reporting, Verification (MRV):</strong> Regular data reporting to meet DOE and EPA requirements.</li>
+    </ul>
+  </details>
+
+  <!-- Dashboard Dropdown -->
+  <details>
+    <summary><strong>Daily Operational Dashboard</strong></summary>
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Value</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CO₂ Captured Today</td>
+          <td>27.3 metric tons</td>
+          <td>July 30, 2025</td>
+        </tr>
+        <tr>
+          <td>Water Used for Capture</td>
+          <td>1,100 gallons</td>
+          <td>July 30, 2025</td>
+        </tr>
+        <tr>
+          <td>Air Quality (PM2.5)</td>
+          <td>8 µg/m³</td>
+          <td>July 30, 2025</td>
+        </tr>
+        <tr>
+          <td>Ambient CO₂ Levels</td>
+          <td>418 ppm</td>
+          <td>July 30, 2025</td>
+        </tr>
+        <tr>
+          <td>Energy Source</td>
+          <td>97% Solar, 3% Grid Backup</td>
+          <td>July 30, 2025</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><em>Note: Values above are updated daily during active operations. Full datasets are available upon request and through quarterly community briefings.</em></p>
+  </details>
+
+  <!-- Learn More Links -->
+  <details>
+    <summary><strong>Learn More</strong></summary>
+    <ul>
+      <li><a href="#resources">Visit our Resources tab</a> for downloadable factsheets and technical documentation.</li>
+      <li><a href="#faq">See the FAQ section</a> for questions about health, safety, and environmental impacts.</li>
+      <li><a href="#contact">Contact us</a> directly for access to MRV reports or to request a community meeting in your area.</li>
+    </ul>
+  </details>
+</article>
+
+    <!-- Resources -->
+<article id="resources">
+  <h2 class="major">Resources</h2>
+  <span class="image main"><img src="images/resources.jpg" alt="Educational and Community Resources" /></span>
+
+  <p>This section offers resources to help you understand carbon removal, explore career pathways, access public reports, and stay informed as a resident of the Four Corners region. Use the dropdowns below to find the materials most relevant to you.</p>
+
+  <!-- DACS Education -->
+  <details open>
+    <summary><strong>Learn About Direct Air Capture</strong></summary>
+    <ul>
+      <li><a href="https://carbon180.org/dac-explainer" target="_blank">Carbon180: What Is DAC?</a> – An accessible overview of carbon removal technology.</li>
+      <li><a href="https://www.iea.org/reports/direct-air-capture" target="_blank">IEA: Direct Air Capture Report</a> – Global DAC deployment trends and challenges.</li>
+      <li><a href="https://www.energy.gov/fecm/direct-air-capture" target="_blank">U.S. Department of Energy – Direct Air Capture</a> – Federal policy and R&D programs.</li>
+    </ul>
+  </details>
+
+  <!-- Community & Tribal Resources -->
+  <details>
+    <summary><strong>Tribal & Local Community Resources</strong></summary>
+    <ul>
+      <li><a href="https://www.navajo-nsn.gov/" target="_blank">Navajo Nation Government</a> – Government programs and tribal updates.</li>
+      <li><a href="https://www.utemountainutetribe.com/" target="_blank">Ute Mountain Ute Tribe</a> – Tribal programs and governance.</li>
+      <li><a href="https://www.sanjuancollege.edu/" target="_blank">San Juan College Workforce Center</a> – Local technical certifications.</li>
+      <li><a href="https://www.dinecollege.edu/" target="_blank">Diné College</a> – Courses in science, environment, and public health.</li>
+      <li><a href="https://www.fortlewis.edu/" target="_blank">Fort Lewis College</a> – Environmental and Earth sciences research programs.</li>
+    </ul>
+  </details>
+
+  <!-- Public Documents & Reports -->
+  <details>
+    <summary><strong>Public Documents & Regulatory Info</strong></summary>
+    <ul>
+      <li><a href="docs/fccs-project-factsheet.pdf" target="_blank">FCCS Project Fact Sheet (PDF)</a></li>
+      <li><a href="docs/community-feedback-summary.pdf" target="_blank">Summary of Community Comments (PDF)</a></li>
+      <li><a href="docs/tribal-consultation-log.pdf" target="_blank">Tribal Consultation Log (PDF)</a></li>
+      <li><a href="https://www.epa.gov/ghgreporting/geologic-sequestration-reporting" target="_blank">EPA: Geologic Sequestration Rules</a> – Regulations for Class VI CO₂ injection wells.</li>
+    </ul>
+  </details>
+
+  <!-- Jobs & Training -->
+  <details>
+    <summary><strong>🔧 Workforce & Training Resources</strong></summary>
+    <ul>
+      <li><a href="#jobs">View Current Openings</a> on the FCCS Jobs page.</li>
+      <li><a href="https://www.sanjuancollege.edu/college-training/workforce-training/" target="_blank">San Juan College – Workforce Training</a></li>
+      <li><a href="https://www.dinecollege.edu/academics/" target="_blank">Diné College – Science & Applied Tech Programs</a></li>
+      <li><a href="https://www.fortlewis.edu/academics/schools-departments/department-of-geosciences" target="_blank">Fort Lewis College – Geosciences Department</a></li>
+    </ul>
+  </details>
+
+  <!-- Contact & Engagement -->
+  <details>
+    <summary><strong>Stay Connected</strong></summary>
+    <ul>
+      <li><a href="mailto:outreach@fourcornerscarbon.org">Join the Outreach Mailing List</a> – For hearing notices and community events.</li>
+      <li><a href="mailto:jobs@fourcornerscarbon.org">Jobs Mailing List</a> – For new job postings and training alerts.</li>
+      <li><a href="#community">Community Involvement</a> – For hearing dates and partnership updates.</li>
+    </ul>
+  </details>
+</article>
+
+<!-- Dashboard -->
+<article id="dataTracking">
+  <h2 class="major">Data Tracking</h2>
+
+  <!-- General Description -->
+  Track overall facility mertrics for air pollution, resource consumption, and carbon removal
+  <br>
+  Needed:
+  <ul>
+    <li>Bar Chart of Who's buying</li>
+    <li>Pie Chart of Removed vs Emissions from Construction</li>
+    <li>Energy Use/Water Consumption Stacked Area Chart</li>
+    <li>Air Quality Control Chart</li>
+  </ul>
+  <!-- Map Container -->
+  <div id="map" style="height: 500px; margin-top: 1em;"></div>
+</article>
+
+  <!-- Community Involvement -->
+<article id="community">
+  <h2 class="major">Community Involvement</h2>
+  <span class="image main"><img src="images/community.jpg" alt="Community Engagement" /></span>
+
+  <p>At Four Corners Carbon Solutions, we believe the success of climate solutions depends on meaningful local collaboration. Our DACS project is rooted in trust, transparency, and long-term partnerships with the people of the Four Corners region.</p>
+
+  <details open>
+    <summary><strong>📣 Community Hearings & Outreach</strong></summary>
+    <ul>
+      <li><strong>April 2024 – Shiprock, NM:</strong> Public consultation on site selection and environmental safety.</li>
+      <li><strong>June 2024 – Cortez, CO:</strong> Open house and Q&A with engineering and permitting teams.</li>
+      <li><strong>Planned Fall 2025 – Farmington, NM:</strong> Project operations overview and tribal engagement roundtable.</li>
+    </ul>
+    <p>We welcome additional hearing requests and provide mobile briefings upon community request.</p>
+  </details>
+
+  <details>
+    <summary><strong>🤝 Partnerships & Collaboration</strong></summary>
+    <p>We're actively building relationships with a diverse range of local and regional partners:</p>
+    <ul>
+      <li><strong>Navajo Nation:</strong> Consultation on land use, water sourcing, and cultural preservation.</li>
+      <li><strong>Ute Mountain Ute Tribe:</strong> Engagement on air quality monitoring and training opportunities.</li>
+      <li><strong>San Juan College (NM):</strong> Workforce development in green energy and field operations.</li>
+      <li><strong>Fort Lewis College (CO):</strong> Research collaboration on climate science and geology.</li>
+      <li><strong>Diné College (AZ):</strong> Outreach and student internships focused on environmental stewardship.</li>
+    </ul>
+    <p>We continue to invite tribal, educational, and civic groups to co-develop programs, training, and feedback processes.</p>
+  </details>
+
+  <details>
+    <summary><strong>🌱 How to Get Involved</strong></summary>
+    <ul>
+      <li><a href="#contact">Request a local presentation or campus visit</a></li>
+      <li><a href="mailto:outreach@fourcornerscarbon.org">Join our community mailing list</a> for updates and hearing notices</li>
+      <li><a href="#jobs">Explore training and job opportunities</a> as operations begin</li>
+      <li>Host a classroom workshop or environmental teach-in with our team</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>📄 Public Documents & Reporting</strong></summary>
+    <ul>
+      <li><a href="docs/community-feedback-summary.pdf" target="_blank">Summary of Community Comments (PDF)</a></li>
+      <li><a href="docs/tribal-consultation-log.pdf" target="_blank">Tribal Consultation Log (PDF)</a></li>
+      <li><a href="#resources">See more in our Resources tab</a> for maps, fact sheets, and regulations</li>
+    </ul>
+  </details>
+</article>
+
+    <!-- Jobs -->
+<article id="jobs">
+  <h2 class="major">Jobs & Opportunities</h2>
+  <span class="image main"><img src="images/jobs.jpg" alt="Jobs and Training" /></span>
+
+  <p>Four Corners Carbon Solutions is creating skilled, meaningful jobs as we build and operate the region’s first Direct Air Capture and Storage (DACS) facility. We're committed to hiring locally, supporting workforce development, and preparing the next generation of clean energy professionals.</p>
+
+  <details open>
+    <summary><strong>📌 Current Open Positions</strong></summary>
+    <ul>
+      <li><strong>Field Technician – CO₂ Monitoring</strong><br>
+        Monitor and report on air quality, equipment performance, and safety compliance at the capture site.
+      </li>
+      <li><strong>Pipeline Operator – CO₂ Transport</strong><br>
+        Maintain and inspect pipeline systems between the capture facility and underground injection site.
+      </li>
+      <li><strong>Construction Site Laborer – Phase 1 Build</strong><br>
+        Assist in civil construction, structural assembly, and utility installation (Temporary, through Jan 2026).
+      </li>
+      <li><strong>Community Liaison Coordinator</strong><br>
+        Act as the bridge between project teams and local communities, especially tribal and educational partners.
+      </li>
+    </ul>
+    <p><em>To apply, email your resume and cover letter to <a href="mailto:jobs@fourcornerscarbon.org">jobs@fourcornerscarbon.org</a> or check the full listing at <a href="#">fourcornerscarbon.org/jobs</a>.</em></p>
+  </details>
+
+  <details>
+    <summary><strong>🔧 Trades & Skills in Demand</strong></summary>
+    <p>This project relies on skilled trades and clean energy expertise across several disciplines, including:</p>
+    <ul>
+      <li>Electricians (solar and grid interconnection)</li>
+      <li>Welders and metal fabricators (pipeline and structural)</li>
+      <li>Heavy equipment operators</li>
+      <li>Environmental field techs (air, soil, and groundwater monitoring)</li>
+      <li>Industrial mechanics and technicians</li>
+      <li>Data entry and GIS mapping specialists</li>
+    </ul>
+    <p>We prioritize applicants from the Four Corners region and offer apprenticeship-style roles for early-career applicants.</p>
+  </details>
+
+  <details>
+    <summary><strong>🎓 Training & Career Pathways</strong></summary>
+    <p>If you're interested in working in carbon capture, clean construction, or environmental monitoring, these local programs can help you build the right skills:</p>
+    <ul>
+      <li><strong>San Juan College – Center for Workforce Development</strong><br>
+        Certifications in energy systems, environmental tech, welding, and industrial safety.</li>
+      <li><strong>Diné College – Science & Applied Tech Programs</strong><br>
+        Courses in environmental science, GIS, and green energy careers.</li>
+      <li><strong>Fort Lewis College – Earth & Environmental Sciences</strong><br>
+        Internships and student research tied to carbon removal and climate tech.</li>
+    </ul>
+    <p><em>We also offer on-the-job training for eligible positions. No prior experience in carbon removal is required for most roles.</em></p>
+  </details>
+
+  <details>
+    <summary><strong>📨 Stay Informed</strong></summary>
+    <p>Want to be notified when new jobs are posted or training slots open up?</p>
+    <ul>
+      <li><a href="mailto:jobs@fourcornerscarbon.org">Email us to join our jobs mailing list</a></li>
+      <li>Check <a href="#community">Community Involvement</a> for local hiring events and info sessions</li>
+    </ul>
+  </details>
+</article>
+
+    <!-- FAQ -->
+<article id="faq">
+  <h2 class="major">Frequently Asked Questions</h2>
+  <span class="image main"><img src="images/faq.jpg" alt="Frequently Asked Questions" /></span>
+  <p>Below are answers to common questions we hear from residents, partners, and stakeholders in the Four Corners region. If you don’t see your question listed, <a href="#contact">reach out to us</a> — we’d love to hear from you.</p>
+
+  <details open>
+    <summary><strong>🧭 Why should I care about carbon capture?</strong></summary>
+    <p>Carbon dioxide (CO₂) is a major contributor to climate change, and carbon capture directly removes it from the atmosphere. This helps reduce wildfires, water shortages, and extreme weather while creating local jobs and driving new investment in clean energy infrastructure.</p>
+  </details>
+
+  <details>
+    <summary><strong>🌍 Why should we do this here?</strong></summary>
+    <p>The Four Corners region is ideal for carbon removal because of its geology, solar energy resources, and existing workforce. It allows us to create climate solutions rooted in community benefit and environmental integrity.</p>
+  </details>
+
+  <details>
+    <summary><strong>🌎 Will this cause earthquakes?</strong></summary>
+    <p>No. Our CO₂ storage is done in deep saline formations far below drinking water aquifers, and we follow strict EPA Class VI permitting rules. The volumes and pressures are carefully managed to avoid induced seismicity, and the site is continuously monitored.</p>
+  </details>
+
+  <details>
+    <summary><strong>📐 How much land is needed for this project?</strong></summary>
+    <p>Stage 1 of the project uses approximately 35–50 acres for the capture facility, pipelines, and monitoring stations. The underground storage formation spans a much larger area, but all activity on the surface is limited and controlled.</p>
+  </details>
+
+  <details>
+    <summary><strong>💧 How much water is needed?</strong></summary>
+    <p>For this phase of the project, water use is approximately 1,000–1,500 gallons per day — comparable to a small commercial operation. We use dry cooling and are actively exploring reclaimed water options to minimize freshwater use.</p>
+  </details>
+
+  <details>
+    <summary><strong>🏘️ Does this benefit the local community? How?</strong></summary>
+    <p>Yes. The project creates skilled jobs, supports tribal and educational partnerships, contributes to regional climate resilience, and prioritizes local sourcing. We also provide workforce training and STEM outreach in schools.</p>
+  </details>
+
+  <details>
+    <summary><strong>🔧 What trades are being hired?</strong></summary>
+    <p>We're hiring electricians, welders, equipment operators, technicians, environmental monitors, and community engagement staff. See our <a href="#jobs">Jobs section</a> for openings and training pathways.</p>
+  </details>
+
+  <details>
+    <summary><strong>📅 When is the next community engagement event?</strong></summary>
+    <p>We’re hosting a regional update in Farmington, NM in Fall 2025, with additional events by request. Stay informed by <a href="mailto:outreach@fourcornerscarbon.org">joining our mailing list</a> or visiting the <a href="#community">Community Involvement</a> section.</p>
+  </details>
+
+  <details>
+    <summary><strong>🛠️ What does decommissioning look like?</strong></summary>
+    <p>At the end of its operational life, the site will be safely decommissioned. All infrastructure is removed or made inert, wells are sealed, and monitoring continues for 50+ years to ensure environmental safety. The land can return to other uses or open space.</p>
+  </details>
+</article>
+
+    <!-- Contact -->
+    <article id="contact">
+      <h2 class="major">Contact</h2>
+      <form method="post" action="#">
+        <div class="fields">
+          <div class="field half">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="field half">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="4"></textarea>
+          </div>
+        </div>
+        <ul class="actions">
+          <li><input type="submit" value="Send Message" class="primary" /></li>
+          <li><input type="reset" value="Reset" /></li>
+        </ul>
+      </form>
+    </article>
+
+  </div> <!-- End of #main -->
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>&copy; Four Corners Carbon Solutions. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+  </footer>
+
+</div> <!-- End of #wrapper -->
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+      <script src="assets/js/facility_location_map.js"></script>
+
+	</body>
+</html>
