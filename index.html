@@ -222,16 +222,254 @@
 <article id="dataTracking">
   <h2 class="major">Data Tracking</h2>
 
-  <!-- General Description -->
-  Track overall facility mertrics for air pollution, resource consumption, and carbon removal
-  <br>
-  Needed:
-  <ul>
-    <li>Bar Chart of Who's buying</li>
-    <li>Pie Chart of Removed vs Emissions from Construction</li>
-    <li>Energy Use/Water Consumption Stacked Area Chart</li>
-    <li>Air Quality Control Chart</li>
-  </ul>
+<!-- ===== Interactive Charts (Chart.js) ===== -->
+<!-- CDN: Chart.js + Annotation plugin -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
+
+<!-- General Description -->
+<p>
+  Track overall facility metrics for air pollution, resource consumption, and carbon removal
+</p>
+
+<p><strong>Needed:</strong></p>
+<ul>
+  <!-- Who's buying (BAR) -->
+  <li>
+    Bar Chart of Who's buying
+    <figure class="chart">
+      <div class="chart-frame">
+        <canvas id="buyersChart" aria-label="Interactive bar chart of buyers" role="img"></canvas>
+      </div>
+      <figcaption>Hypothetical buyers of carbon from a DACs company in the Four Corners region.</figcaption>
+    </figure>
+  </li>
+
+  <!-- Removed vs Emissions (PIE) -->
+  <li>
+    Pie Chart of Removed vs Emissions from Construction
+    <figure class="chart">
+      <div class="chart-frame">
+        <canvas id="removedEmissionsChart" aria-label="Interactive pie chart of removed vs construction emissions" role="img"></canvas>
+      </div>
+      <figcaption>Hypothetical ratio of carbon removed to construction-related emissions.</figcaption>
+    </figure>
+  </li>
+
+  <!-- Energy & Water (STACKED AREA) -->
+  <li>
+    Energy Use/Water Consumption Stacked Area Chart
+    <figure class="chart">
+      <div class="chart-frame">
+        <canvas id="energyWaterChart" aria-label="Interactive stacked area chart for energy and water" role="img"></canvas>
+      </div>
+      <figcaption>Hypothetical facility energy and water usage by month.</figcaption>
+    </figure>
+  </li>
+
+  <!-- Air Quality (CONTROL CHART) -->
+  <li>
+    Air Quality Control Chart
+    <figure class="chart">
+      <div class="chart-frame">
+        <canvas id="airQualityChart" aria-label="Interactive control chart of PM2.5" role="img"></canvas>
+      </div>
+      <figcaption>Hypothetical PM2.5 levels with mean and ±3σ control limits.</figcaption>
+    </figure>
+  </li>
+</ul>
+
+<!-- Styling to keep charts inside the frame/panel -->
+<style>
+  .chart { margin: 0.75rem 0 1.25rem; }
+  .chart-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;   /* tweak per chart if you prefer */
+    max-height: 55vh;
+  }
+  .chart-frame canvas {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    border-radius: 12px;
+  }
+  .chart figcaption {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.4rem;
+  }
+</style>
+
+<script>
+  // Shared Chart.js defaults for a clean look in "Dimension"
+  Chart.defaults.font.family = getComputedStyle(document.documentElement).getPropertyValue('--font-family') || 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial';
+  Chart.defaults.plugins.legend.labels.usePointStyle = true;
+  Chart.defaults.plugins.tooltip.intersect = false;
+  Chart.defaults.responsive = true;
+  Chart.defaults.maintainAspectRatio = false;
+
+  /* ========== 1) Who's Buying (BAR) ========== */
+  const buyersCtx = document.getElementById('buyersChart');
+  const buyersChart = new Chart(buyersCtx, {
+    type: 'bar',
+    data: {
+      labels: ['TechCorp', 'GreenEnergy Inc.', 'AutoMakers LLC', 'State Government', 'Retail Chain'],
+      datasets: [{
+        label: 'Carbon Purchased (tons)',
+        data: [1500, 2300, 1200, 2000, 900],
+        borderWidth: 1,
+        // No explicit colors per your constraints; Chart.js will choose defaults
+      }]
+    },
+    options: {
+      plugins: {
+        tooltip: { callbacks: { label: (ctx) => ctx.dataset.label + ': ' + ctx.parsed.y.toLocaleString() } },
+        legend: { display: false },
+        title: { display: true, text: "Who's Buying — Carbon Purchases (tons)" }
+      },
+      scales: {
+        x: { ticks: { maxRotation: 30, minRotation: 0 } },
+        y: { beginAtZero: true, grid: { drawBorder: false } }
+      }
+    }
+  });
+
+  /* ========== 2) Removed vs Emissions (PIE) ========== */
+  const removedEmissionsCtx = document.getElementById('removedEmissionsChart');
+  const removed = 1800, emissions = 1200;
+  const removedEmissionsChart = new Chart(removedEmissionsCtx, {
+    type: 'pie',
+    data: {
+      labels: ['Removed', 'Construction Emissions'],
+      datasets: [{
+        data: [removed, emissions]
+      }]
+    },
+    options: {
+      plugins: {
+        title: { display: true, text: 'Removed vs Emissions from Construction' },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+              const val = ctx.parsed;
+              const pct = ((val / total) * 100).toFixed(1);
+              return `${ctx.label}: ${val.toLocaleString()} (${pct}%)`;
+            }
+          }
+        }
+      }
+    }
+  });
+
+  /* ========== 3) Energy & Water (STACKED AREA) ========== */
+  const energyWaterCtx = document.getElementById('energyWaterChart');
+  const months = ['2025-01','2025-02','2025-03','2025-04','2025-05','2025-06','2025-07','2025-08','2025-09','2025-10','2025-11','2025-12'];
+  const energyMWh = [420, 460, 480, 500, 520, 540, 560, 555, 530, 510, 490, 470];
+  const waterKgal = [180, 190, 210, 230, 250, 270, 300, 295, 260, 240, 220, 200];
+
+  const energyWaterChart = new Chart(energyWaterCtx, {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          label: 'Energy (MWh)',
+          data: energyMWh,
+          fill: true,
+          stack: 'total',
+          tension: 0.25
+        },
+        {
+          label: 'Water (kgal)',
+          data: waterKgal,
+          fill: true,
+          stack: 'total',
+          tension: 0.25
+        }
+      ]
+    },
+    options: {
+      plugins: {
+        title: { display: true, text: 'Facility Energy Use & Water Consumption (Monthly)' }
+      },
+      scales: {
+        x: { ticks: { maxRotation: 0 }, grid: { display: false } },
+        y: { beginAtZero: true, stacked: true, grid: { drawBorder: false } }
+      },
+      interaction: { mode: 'index', intersect: false }
+    }
+  });
+
+  /* ========== 4) Air Quality Control Chart (PM2.5) ========== */
+  const airCtx = document.getElementById('airQualityChart');
+
+  // Hypothetical 30 daily readings (matching prior scale)
+  const days = Array.from({ length: 30 }, (_, i) => {
+    const d = new Date(2025, 5, 1 + i); // June 2025 (month index 5)
+    return d.toISOString().slice(0, 10);
+  });
+  // Fixed set resembling the earlier distribution:
+  const pm25 = [12.9, 8.6, 9.5, 10.3, 7.9, 9.4, 9.4, 6.0, 11.5, 10.7, 8.3, 9.1, 10.5, 9.0, 8.9, 6.6, 10.6, 9.8, 10.0, 6.4, 12.8, 9.7, 8.7, 13.5, 9.4, 6.6, 8.6, 5.0, 11.6, 8.6];
+
+  const mean = pm25.reduce((a,b)=>a+b,0) / pm25.length;
+  // sample std dev
+  const variance = pm25.reduce((a, x) => a + Math.pow(x - mean, 2), 0) / (pm25.length - 1);
+  const sigma = Math.sqrt(variance);
+  const ucl = mean + 3 * sigma;
+  const lcl = Math.max(0, mean - 3 * sigma);
+
+  const airQualityChart = new Chart(airCtx, {
+    type: 'line',
+    data: {
+      labels: days,
+      datasets: [{
+        label: 'PM2.5 (µg/m³)',
+        data: pm25,
+        pointRadius: 3,
+        fill: false,
+        tension: 0.2
+      }]
+    },
+    options: {
+      plugins: {
+        title: { display: true, text: 'Air Quality Control Chart (PM2.5)' },
+        legend: { position: 'top' },
+        annotation: {
+          annotations: {
+            mean: {
+              type: 'line',
+              yMin: mean, yMax: mean,
+              borderDash: [6, 6], borderWidth: 1.5,
+              label: { display: true, content: `Mean (${mean.toFixed(1)})`, position: 'end' }
+            },
+            ucl: {
+              type: 'line',
+              yMin: ucl, yMax: ucl,
+              borderDash: [6, 6], borderWidth: 1.5,
+              label: { display: true, content: `UCL (+3σ = ${ucl.toFixed(1)})`, position: 'end' }
+            },
+            lcl: {
+              type: 'line',
+              yMin: lcl, yMax: lcl,
+              borderDash: [6, 6], borderWidth: 1.5,
+              label: { display: true, content: `LCL (-3σ = ${lcl.toFixed(1)})`, position: 'end' }
+            }
+          }
+        }
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: { beginAtZero: true, grid: { drawBorder: false } }
+      },
+      interaction: { mode: 'nearest', intersect: false }
+    }
+  });
+</script>
+
   <!-- Map Container -->
   <div id="map" style="height: 500px; margin-top: 1em;"></div>
 </article>
